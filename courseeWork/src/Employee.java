@@ -81,6 +81,7 @@ public class Employee {
         return employees[0];
     }
 
+
     public static Object maxSalary(Object[] o) {
         Employee[] employees = (Employee[]) o;
         Arrays.sort(employees, Comparator.comparing(Employee :: getSalary));

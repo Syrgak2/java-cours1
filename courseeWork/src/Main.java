@@ -15,7 +15,6 @@ public class Main {
             element.getId();
         }
 
-
         Employee.printEmployees(employees);
         System.out.println(Employee.sumSalary(employees));
         System.out.println("Сотрудник с минимальной зарплатой: " + Employee.minSalary(employees));
