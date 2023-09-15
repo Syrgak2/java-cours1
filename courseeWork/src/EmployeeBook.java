@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
+import java.util.Optional;
 
 public class EmployeeBook {
     private Employee[] employees = new Employee[10];
@@ -85,10 +86,6 @@ public class EmployeeBook {
         }
     }
 
-//    Сортирует массив на основе отдела
-    private void sortObjectInDepartment() {
-        Arrays.sort(employees, Comparator.comparing(Employee :: getDepartment));
-    }
 
     //    находить человека с минимальным Salary внутри отдела
     public Employee findMinSalaryInDepartment(int department) {
@@ -249,34 +246,21 @@ public class EmployeeBook {
         }
     }
 
-    private void printEmployeeName(int department) {
-        System.out.println("Department: " + department);
-        for (Employee element : employees) {
-            if (element != null && element.getDepartment() == department) {
-                System.out.println("Name: " + element.getEmployeeName());
+    public void printEmployeeByDepartment() {
+        int department = employees[0].getDepartment();
+        for (int i = 1; i < employees.length; i++) {
+            if (employees[i] != null && employees[i].getDepartment() > department) {
+                department = employees[i].getDepartment();
             }
         }
-    }
 
-    public void printEmployeeByDepartment() {
-        int department = 1;
-        switch (department) {
-            case (1):
-               printEmployeeName(department);
-                department += 1;
-            case (2):
-                printEmployeeName(department);
-                department += 1;
-            case (3):
-                printEmployeeName(department);
-                department += 1;
-            case (4):
-                printEmployeeName(department);
-                department += 1;
-            case (5):
-                printEmployeeName(department);
-                department += 1;
-
+        for (int i = 1; i <= department; i++) {
+            System.out.println("Department: " + i);
+            for (Employee element : employees) {
+                if (element != null && element.getDepartment() == i) {
+                    System.out.println("Name: " + element.getEmployeeName());
+                }
+            }
         }
     }
 
