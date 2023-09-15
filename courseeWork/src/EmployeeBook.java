@@ -5,6 +5,7 @@ import java.util.Optional;
 
 public class EmployeeBook {
     private Employee[] employees = new Employee[10];
+
     {
         employees[0] = new Employee("Карыбеков Сыргак Карыбекович", 4, 100_000);
         employees[1] = new Employee("Лавров Александр Сергеевич", 4, 120_000);
@@ -16,7 +17,7 @@ public class EmployeeBook {
     }
 
     public void printEmployees() {
-        for (Employee element  : employees) {
+        for (Employee element : employees) {
             System.out.println(element);
         }
     }
@@ -43,14 +44,14 @@ public class EmployeeBook {
     }
 
     //    находить человека с минимальным Salary
-    public  Object findMinSalary() {
+    public Employee findMinSalary() {
 //        Arrays.sort(employees, Comparator.comparing(Employee :: getSalary));
-        Object minSalaryEmployee = null;
+        Employee minSalaryEmployee = null;
         int nextIndex = 1;
         for (Employee element : employees) {
             if (element != null && element.getSalary() < employees[nextIndex].getSalary()) {
                 minSalaryEmployee = element;
-                nextIndex ++;
+                nextIndex++;
             }
         }
         return minSalaryEmployee;
@@ -64,7 +65,7 @@ public class EmployeeBook {
         for (Employee element : employees) {
             if (element != null && element.getSalary() > employees[nextIndex].getSalary()) {
                 maxSalaryEmployee = element;
-                nextIndex ++;
+                nextIndex++;
             }
         }
         return maxSalaryEmployee;
@@ -99,7 +100,7 @@ public class EmployeeBook {
                     employees[i].getDepartment() == department &&
                     employees[i].getSalary() < employees[nextIndex].getSalary()) {
                 minSalaryEmployee = employees[i];
-                nextIndex ++;
+                nextIndex++;
             }
         }
         return minSalaryEmployee;
@@ -113,7 +114,7 @@ public class EmployeeBook {
         for (Employee element : employees) {
             if (element != null && element.getDepartment() == department && element.getSalary() > employees[nextIndex].getSalary()) {
                 maxSalaryEmployee = element;
-                nextIndex ++;
+                nextIndex++;
             }
         }
         return maxSalaryEmployee;
@@ -155,7 +156,7 @@ public class EmployeeBook {
     }
 
     //    печатает всех сотрудников отдела
-    public void PrintDepartmentEmployee(int department) {
+    public void printDepartmentEmployee(int department) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && employees[i].getDepartment() == department) {
                 System.out.println("Name: " + employees[i].getEmployeeName() + ", salary: " + employees[i].getSalary()
@@ -187,7 +188,7 @@ public class EmployeeBook {
 
     //   Методы очень сложно
 
-//    Добавить нового сотрудника
+    //    Добавить нового сотрудника
     public void pushNewEmployee(String name, int department, double salary) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
@@ -198,7 +199,7 @@ public class EmployeeBook {
 
     }
 
-//    Удалить сотрудника по ID
+    //    Удалить сотрудника по ID
     public void deleteEmployee(String name) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && Objects.equals(employees[i].getEmployeeName(), name)) {
@@ -207,16 +208,16 @@ public class EmployeeBook {
         }
     }
 
-//  Изменить сотрудника отдел
+    //  Изменить сотрудника отдел
     private void modernizeDepartment(String name, int department) {
         for (Employee element : employees) {
-            if (element != null &&Objects.equals(element.getEmployeeName(), name)) {
+            if (element != null && Objects.equals(element.getEmployeeName(), name)) {
                 element.setDepartment(department);
             }
         }
     }
 
-//    Изменить сотрудника зарплата
+    //    Изменить сотрудника зарплата
     private void modernizeSalary(String name, double salary) {
         for (Employee element : employees) {
             if (element != null && Objects.equals(element.getEmployeeName(), name)) {
@@ -226,7 +227,7 @@ public class EmployeeBook {
     }
 
 
-//    Изменить сотрудника
+    //    Изменить сотрудника
 //    Можно изменить отдел и зарплату по отдельности или вместе
     public void modernizeEmployee(String name, Integer department, Double salary) {
         for (Employee element : employees) {
@@ -247,22 +248,11 @@ public class EmployeeBook {
     }
 
     public void printEmployeeByDepartment() {
-        int department = employees[0].getDepartment();
-        for (int i = 1; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getDepartment() > department) {
-                department = employees[i].getDepartment();
-            }
-        }
 
-        for (int i = 1; i <= department; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("Department: " + i);
-            for (Employee element : employees) {
-                if (element != null && element.getDepartment() == i) {
-                    System.out.println("Name: " + element.getEmployeeName());
-                }
-            }
+            printDepartmentEmployee(i);
         }
     }
-
 
 }

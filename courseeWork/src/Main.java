@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
         EmployeeBook employeeBook = new EmployeeBook();
-        employeeBook.printEmployees();
+//        employeeBook.printEmployees();
 //        System.out.println(employeeBook.returnSumSalary());
 //        System.out.println("Сотрудник с минимальной зарплатой: " + employeeBook.findMinSalary());
 //        System.out.println("max salary: " + employeeBook.findMaxSalary());
@@ -22,13 +22,16 @@ public class Main {
 
 //      Очень сложно
 //        employeeBook.deleteEmployee("Бексултанова Альбина Жоробековна");
-        employeeBook.pushNewEmployee("Александр Ененин", 4, 160_000);
+//        employeeBook.pushNewEmployee("Александр Ененин", 4, 160_000);
 //        System.out.println("After delete");
 //        employeeBook.printEmployees();
-        employeeBook.modernizeEmployee("Александр Ененин", 1, 125_000.0);
-        employeeBook.printEmployees();
+//        employeeBook.modernizeEmployee("Александр Ененин", 1, 125_000.0);
+//        employeeBook.printEmployees();
 //        employeeBook.printEmployees();
 
         employeeBook.printEmployeeByDepartment();
+
+        String str = new String("fjsjdfkl");
+        System.out.println(str);
     }
 }
