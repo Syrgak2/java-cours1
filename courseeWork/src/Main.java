@@ -25,7 +25,8 @@ public class Main {
         employeeBook.pushNewEmployee("Александр Ененин", 4, 160_000);
 //        System.out.println("After delete");
 //        employeeBook.printEmployees();
-//        employeeBook.modernizeEmployee("Александр Ененин", 1, 125_000);
+        employeeBook.modernizeEmployee("Александр Ененин", 1, 125_000.0);
+        employeeBook.printEmployees();
 //        employeeBook.printEmployees();
 
         employeeBook.printEmployeeByDepartment();
